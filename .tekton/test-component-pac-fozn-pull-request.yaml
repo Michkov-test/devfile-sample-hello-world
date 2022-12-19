@@ -17,8 +17,6 @@ metadata:
   namespace: build-e2e-xjns
 spec:
   params:
-  - name: revision
-    value: '{{revision}}'
   - name: output-image
     value: quay.io/mkovarik/test-images:on-pr-{{revision}}
   - name: dockerfile
@@ -27,6 +25,8 @@ spec:
     value: .
   - name: git-url
     value: '{{repo_url}}'
+  - name: revision
+    value: '{{revision}}'
   pipelineSpec:
     finally:
     - name: show-summary
